@@ -1,0 +1,9 @@
+last steps ::
+	gen instructions include making a java package, according to java naming conventions
+		probably for the flyable family imo
+	also we should override toString for readable code
+		example code
+			@Override
+			public String toString() {
+				return this.re + " + " + this.im + "i";
+			}

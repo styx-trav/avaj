@@ -1,24 +1,30 @@
 import java.util.LinkedList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 class WeatherTower extends Tower {
-  WeatherTower() { super(); }
-  public String getWeather(Coordinate p_coordinates) {
+  WeatherTower(FileWriter f) { super(f); }
+  public String getWeather(Coordinates p_coordinates) {
     String season = WeatherProvider.getCurrentWeather(p_coordinates);
     return season;
-    //unsure why we wouldn't just go for WeatherProvider directly... hm.
   }
   public void changeWeather() {
     LinkedList<Flyable> obv = this.getObservers();
     for(int i = 0; i != obv.size(); i++)
       obv.get(i).updateCoord();
   }
-  public void register(Flyable p_flyable) {
+  public void register(Flyable p_flyable) throws IOException {
     super.register(p_flyable);
     p_flyable.registerTower(this);
-    System.out.println("weather tower.");
+    fout.write("Tower says: ");
+    p_flyable.ntoString();
+    fout.write(" registered to weather tower.\n");
   }
-  public void unregister(Flyable p_flyable) {
+  public void unregister(Flyable p_flyable) throws IOException {
     super.unregister(p_flyable);
-    System.out.println("weather tower.");
+    fout.write("Tower says: ");
+    p_flyable.ntoString();
+    fout.write(" unregistered from ");
+    fout.write("weather tower.\n");
   }
 }

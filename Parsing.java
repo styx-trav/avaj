@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.util.LinkedList;
 import java.lang.NumberFormatException;
-import java.lang.ArrayIndexOutOfBoundsException;
+import java.io.IOException;
 
 class Parsing {
   public LinkedList<Flyable> objs;
@@ -25,45 +25,41 @@ class Parsing {
   private int ender(int ret) { reader.close(); return ret; }
   private int parseElse(String str) {
     String[] tab = str.split("\\s+", 6);
+    if (tab.length < 5) { return 0; }
     int[] coord = {0, 0, 0};
-    try {
-      if (!istype(tab[0])) { System.out.println("Error0"); return 0; }
-      if (tab[1] == null || tab[1].isEmpty()) { System.out.println("Error1"); return 0; }
-      for (int i = 2; i != 5; i++) {
-        if (tab[i] == null || tab[i].isEmpty()) { System.out.println("Error2"); return 0; }
-        coord[i -2] = toPosInt(tab[i]);
-        if (coord[i -2] < 0) { System.out.println("Error3"); return 0; }
-      }
-    }
-    catch(ArrayIndexOutOfBoundsException e) { return 0; }
-    try {
-      if (tab[5] != null && !tab[5].isEmpty()) { System.out.println("Error4"); return 0; }
-    }
-    catch(ArrayIndexOutOfBoundsException e) {}
-    objs.add(AircraftFactory.newAircraft(tab[0], tab[1], new Coordinate(coord[0], coord[1], coord[2])));
+    if (!istype(tab[0]))
+    	return 0;
+    if (tab[1].isEmpty())
+    	return 0;
+	for (int i = 2; i != 5; i++) {
+		if (tab[i].isEmpty())
+			return 0;
+		coord[i -2] = toPosInt(tab[i]);
+		if (coord[i -2] < 0)
+			return 0;
+	}
+    if (tab.length > 5 && !tab[5].isEmpty())
+		return 0;
+    objs.add(AircraftFactory.newAircraft(tab[0], tab[1], new Coordinates(coord[0], coord[1], coord[2])));
     return 1;
   }
   public int parse() {
-    if (!reader.hasNextLine()) { System.out.println("Error5"); return ender(-1); }
+    if (!reader.hasNextLine())
+    	return ender(-1);
     int sim = toPosInt(reader.nextLine());
-    if (sim <= 0) { System.out.println("Error6"); return ender(sim); }
+    if (sim <= 0)
+    	return ender(sim);
     while (reader.hasNextLine()) {
-      if (parseElse(reader.nextLine()) == 0) {
-        System.out.println("Error7");
+      if (parseElse(reader.nextLine()) == 0)
         return ender(-1);
-      }
     }
-    if (objs.size() == 0) { System.out.println("Error8"); return ender(0); }
+    if (objs.size() == 0)
+    	return ender(0);
     return ender(sim);
   }
-  public void register(WeatherTower tower) {
+  public void register(WeatherTower tower) throws IOException {
     for(int i = 0; i != objs.size(); i++) {
       tower.register(objs.get(i));
     }
-  }
-  //for recall only
-  public void announce() {
-    for(int i = 0; i != objs.size(); i++)
-      objs.get(i).announce();
   }
 }

@@ -1,5 +1,5 @@
 class Helicopter extends Aircraft {
-  Helicopter(long p_id, String p_name, Coordinate p_coordinates) {
+  Helicopter(long p_id, String p_name, Coordinates p_coordinates) {
     super(p_id, ("Helicopter#" + p_name), p_coordinates);
     mutate[0] = new int[] {10, 0, 2};
     mutate[1] = new int[] {5, 0, 0};

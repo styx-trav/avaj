@@ -1,5 +1,5 @@
 class Balloon extends Aircraft {
-  Balloon(long p_id, String p_name, Coordinate p_coordinates) {
+  Balloon(long p_id, String p_name, Coordinates p_coordinates) {
     super(p_id, ("Balloon#" + p_name), p_coordinates);
     mutate[0] = new int[] {2, 0, 4};
     mutate[1] = new int[] {0, 0, -5};
