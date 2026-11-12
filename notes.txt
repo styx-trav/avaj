@@ -7,3 +7,17 @@ last steps ::
 			public String toString() {
 				return this.re + " + " + this.im + "i";
 			}
+
+packages notes ::
+	use the folder setup to name the package/call it
+	no caps letters
+	backward domain
+
+
+!!!
+so condtionChanged() is a Tower protected function, which means (apparently) we can't call it from a WeatherTower object. not sure how
+	potential solution ::
+		public WeatherTower(changeWeather) is just a redirection to conditionChanged()
+		conditionChanged does both disp() + updateCoords()
+		updateCoords() goes back to being a private function
+		updateConditions() calls to updateCoords()

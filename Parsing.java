@@ -3,11 +3,15 @@ import java.io.FileReader;
 import java.util.LinkedList;
 import java.lang.NumberFormatException;
 import java.io.IOException;
+import flyables.Flyable;
+import flyables.AircraftFactory;
+import towers.WeatherTower;
+import coords.Coordinates;
 
-class Parsing {
+public class Parsing {
   public LinkedList<Flyable> objs;
   private Scanner reader;
-  Parsing(FileReader obj) {
+  public Parsing(FileReader obj) {
     reader = new Scanner(obj);
     objs = new LinkedList<Flyable>();
   }

@@ -1,8 +1,9 @@
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import towers.WeatherTower;
 
-class Main {
+public class Main {
 	public static void main(String[] args) {
     if (args.length != 1) {
     	System.out.println("Error : need one argument (file name)");

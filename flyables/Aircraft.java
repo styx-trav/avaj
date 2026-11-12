@@ -1,6 +1,10 @@
+package flyables;
+import flyables.Flyable;
+import coords.Coordinates;
+import towers.WeatherTower;
 import java.io.IOException;
 
-class Aircraft implements Flyable {
+public class Aircraft implements Flyable {
   protected WeatherTower weatherTower;
   protected long id;
   protected String name;

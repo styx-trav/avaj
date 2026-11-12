@@ -1,15 +1,17 @@
+package towers;
 import java.util.LinkedList;
 import java.io.FileWriter;
 import java.io.IOException;
+import flyables.Flyable;
 
-class Tower {
+public class Tower {
   private LinkedList<Flyable> observers;
   public FileWriter fout;
-  Tower(FileWriter f) {
+  public Tower(FileWriter f) {
   	fout = f;
   	observers = new LinkedList<Flyable>();
   }
-  LinkedList<Flyable> getObservers() { return observers; }
+  public LinkedList<Flyable> getObservers() { return observers; }
   public void register(Flyable p_flyable) throws IOException { observers.add(p_flyable); }
   public void unregister(Flyable p_flyable) throws IOException {
     for(int i = 0; i != observers.size(); i++) {

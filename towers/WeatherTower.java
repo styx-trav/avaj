@@ -1,9 +1,13 @@
+package towers;
 import java.util.LinkedList;
 import java.io.FileWriter;
 import java.io.IOException;
+import flyables.Flyable;
+import coords.Coordinates;
+import weather.WeatherProvider;
 
-class WeatherTower extends Tower {
-  WeatherTower(FileWriter f) { super(f); }
+public class WeatherTower extends Tower {
+  public WeatherTower(FileWriter f) { super(f); }
   public String getWeather(Coordinates p_coordinates) {
     String season = WeatherProvider.getCurrentWeather(p_coordinates);
     return season;

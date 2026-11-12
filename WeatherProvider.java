@@ -1,4 +1,7 @@
-class WeatherProvider {
+package weather;
+import coords.Coordinates;
+
+public class WeatherProvider {
   private static String[] weather = new String[] {"SUN", "RAIN", "FOG", "SNOW"};
   private WeatherProvider() {};
   public static String getCurrentWeather(Coordinates p_coordinates) {

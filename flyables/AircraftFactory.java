@@ -1,8 +1,12 @@
-class AircraftFactory {
+package flyables;
+import flyables.*;
+import coords.Coordinates;
+
+public class AircraftFactory {
   static long id_ct = 0;
   private AircraftFactory() {};
   static String[] types = {"Helicopter", "JetPlane", "Balloon"};
-  static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
+  static public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
     Flyable ret;
     int i = 0;
     while (i != 3) {

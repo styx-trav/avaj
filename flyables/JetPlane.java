@@ -1,5 +1,9 @@
+package flyables;
+import flyables.Aircraft;
+import coords.Coordinates;
+
 class JetPlane extends Aircraft {
-  JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
+  public JetPlane(long p_id, String p_name, Coordinates p_coordinates) {
     super(p_id, ("JetPlane#" + p_name), p_coordinates);
     mutate[0] = new int[] {10, 0, 2};
     mutate[1] = new int[] {0, 5, 0};
