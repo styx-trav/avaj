@@ -1,6 +1,6 @@
-package flyables;
-import flyables.*;
-import coords.Coordinates;
+package fr.fourty_two.naorakot.flyables;
+import fr.fourty_two.naorakot.flyables.*;
+import fr.fourty_two.naorakot.coords.Coordinates;
 
 public class AircraftFactory {
   static long id_ct = 0;

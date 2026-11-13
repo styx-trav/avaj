@@ -1,8 +1,8 @@
-package towers;
+package fr.fourty_two.naorakot.towers;
 import java.util.LinkedList;
 import java.io.FileWriter;
 import java.io.IOException;
-import flyables.Flyable;
+import fr.fourty_two.naorakot.flyables.Flyable;
 
 public class Tower {
   private LinkedList<Flyable> observers;
@@ -11,7 +11,6 @@ public class Tower {
   	fout = f;
   	observers = new LinkedList<Flyable>();
   }
-  public LinkedList<Flyable> getObservers() { return observers; }
   public void register(Flyable p_flyable) throws IOException { observers.add(p_flyable); }
   public void unregister(Flyable p_flyable) throws IOException {
     for(int i = 0; i != observers.size(); i++) {

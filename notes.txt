@@ -11,6 +11,7 @@ last steps ::
 packages notes ::
 	use the folder setup to name the package/call it
 	no caps letters
+	no numbers
 	backward domain
 
 
@@ -21,3 +22,8 @@ so condtionChanged() is a Tower protected function, which means (apparently) we 
 		conditionChanged does both disp() + updateCoords()
 		updateCoords() goes back to being a private function
 		updateConditions() calls to updateCoords()
+
+for better reading on the try/catch blocks ::
+	separate the main function into underling (private) static functions that throw
+	organize such that closing the necessary objects is still possible throughout
+		by creating the objects in main, catching there, then sending them out as parameters

@@ -1,6 +1,6 @@
-package flyables;
-import flyables.Aircraft;
-import coords.Coordinates;
+package fr.fourty_two.naorakot.flyables;
+import fr.fourty_two.naorakot.flyables.Aircraft;
+import fr.fourty_two.naorakot.coords.Coordinates;
 
 class Helicopter extends Aircraft {
   public Helicopter(long p_id, String p_name, Coordinates p_coordinates) {

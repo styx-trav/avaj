@@ -1,7 +1,7 @@
-package flyables;
-import flyables.Flyable;
-import coords.Coordinates;
-import towers.WeatherTower;
+package fr.fourty_two.naorakot.flyables;
+import fr.fourty_two.naorakot.flyables.Flyable;
+import fr.fourty_two.naorakot.coords.Coordinates;
+import fr.fourty_two.naorakot.towers.WeatherTower;
 import java.io.IOException;
 
 public class Aircraft implements Flyable {
@@ -11,7 +11,6 @@ public class Aircraft implements Flyable {
   protected Coordinates coordinates;
   protected int[][] mutate ;
   protected String[] announcement;
-  protected int season;
   private static String[] seasons = new String[] {"SUN", "RAIN", "FOG", "SNOW"};
   protected Aircraft(long p_id, String p_name, Coordinates p_coordinates) {
     mutate = new int[4][3];
@@ -23,7 +22,7 @@ public class Aircraft implements Flyable {
   public void registerTower(WeatherTower p_tower) {
     weatherTower = p_tower;
   }
-  public void updateCoord() {
+  private void updateCoord(int season) {
     int lo = coordinates.getLongitude() + mutate[season][0];
     int lat = coordinates.getLatitude() + mutate[season][1];
     int h = coordinates.getHeight() + mutate[season][2];
@@ -33,19 +32,15 @@ public class Aircraft implements Flyable {
   }
   public void updateConditions() throws IOException {
     String weather = weatherTower.getWeather(coordinates);
-    for (int i = 0; i != 4; i++) {
-    	if (weather.compareTo(seasons[i]) == 0) {
-    		season = i;
-    		break ;
-    	}
-    }
+    int season = 0;
+    while (weather.compareTo(seasons[season]) != 0)
+    	season++;
     this.ntoString();
     weatherTower.fout.write(announcement[season] + "\n");
+    this.updateCoord(season);
   }
   public boolean landed() {
-    if (coordinates.getHeight() == 0)
-      return true;
-    return false;
+    return (coordinates.getHeight() == 0);
   }
   public void ntoString() throws IOException {
     String str = name + "(" + id + "): ";

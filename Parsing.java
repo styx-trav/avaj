@@ -3,10 +3,10 @@ import java.io.FileReader;
 import java.util.LinkedList;
 import java.lang.NumberFormatException;
 import java.io.IOException;
-import flyables.Flyable;
-import flyables.AircraftFactory;
-import towers.WeatherTower;
-import coords.Coordinates;
+import fr.fourty_two.naorakot.flyables.Flyable;
+import fr.fourty_two.naorakot.flyables.AircraftFactory;
+import fr.fourty_two.naorakot.towers.WeatherTower;
+import fr.fourty_two.naorakot.coords.Coordinates;
 
 public class Parsing {
   public LinkedList<Flyable> objs;

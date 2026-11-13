@@ -1,4 +1,4 @@
-package coords;
+package fr.fourty_two.naorakot.coords;
 
 public class Coordinates {
  private int longitude;

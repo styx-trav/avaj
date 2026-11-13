@@ -1,6 +1,6 @@
-package flyables;
-import flyables.Aircraft;
-import coords.Coordinates;
+package fr.fourty_two.naorakot.flyables;
+import fr.fourty_two.naorakot.flyables.Aircraft;
+import fr.fourty_two.naorakot.coords.Coordinates;
 
 class Balloon extends Aircraft {
   public Balloon(long p_id, String p_name, Coordinates p_coordinates) {

@@ -1,10 +1,10 @@
-package towers;
+package fr.fourty_two.naorakot.towers;
 import java.util.LinkedList;
 import java.io.FileWriter;
 import java.io.IOException;
-import flyables.Flyable;
-import coords.Coordinates;
-import weather.WeatherProvider;
+import fr.fourty_two.naorakot.flyables.Flyable;
+import fr.fourty_two.naorakot.coords.Coordinates;
+import fr.fourty_two.naorakot.weather.WeatherProvider;
 
 public class WeatherTower extends Tower {
   public WeatherTower(FileWriter f) { super(f); }
@@ -12,10 +12,8 @@ public class WeatherTower extends Tower {
     String season = WeatherProvider.getCurrentWeather(p_coordinates);
     return season;
   }
-  public void changeWeather() {
-    LinkedList<Flyable> obv = this.getObservers();
-    for(int i = 0; i != obv.size(); i++)
-      obv.get(i).updateCoord();
+  public void changeWeather() throws IOException {
+    this.conditionChanged();
   }
   public void register(Flyable p_flyable) throws IOException {
     super.register(p_flyable);
