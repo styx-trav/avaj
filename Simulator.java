@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import fr.fourty_two.naorakot.towers.WeatherTower;
 
-public class Main {
+public class Simulator {
 	public static void main(String[] args) {
     if (args.length != 1) {
     	System.out.println("Error : need one argument (file name)");
