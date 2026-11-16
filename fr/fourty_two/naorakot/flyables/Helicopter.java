@@ -9,9 +9,9 @@ class Helicopter extends Aircraft {
     mutate[1] = new int[] {5, 0, 0};
     mutate[2] = new int[] {1, 0, 0};
     mutate[3] = new int[] {0, 0, -12};
-    announcement[0] = "the sun is burning my skin !";
-    announcement[1] = "wonder if the blades spin fast enough to split a raindrop in half.";
-    announcement[2] = "damnit, i can't see a thing ! let's slow down a bit.";
-    announcement[3] = "snow ??? it's the middle of summer ! climate change, man.";
+    announcement[0] = "The sun is burning my skin !";
+    announcement[1] = "Wonder if the blades spin fast enough to split a raindrop in half.";
+    announcement[2] = "Damnit, I can't see a thing ! Let's slow down a bit.";
+    announcement[3] = "Snow ??? It's the middle of summer ! Climate change, man.";
   }
 }

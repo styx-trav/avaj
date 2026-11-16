@@ -18,15 +18,10 @@ public class WeatherTower extends Tower {
   public void register(Flyable p_flyable) throws IOException {
     super.register(p_flyable);
     p_flyable.registerTower(this);
-    fout.write("Tower says: ");
-    p_flyable.ntoString();
-    fout.write(" registered to weather tower.\n");
+    fout.write("Tower says: " + p_flyable.toString() + " registered to weather tower.\n");
   }
   public void unregister(Flyable p_flyable) throws IOException {
     super.unregister(p_flyable);
-    fout.write("Tower says: ");
-    p_flyable.ntoString();
-    fout.write(" unregistered from ");
-    fout.write("weather tower.\n");
+    fout.write("Tower says: " + p_flyable.toString() + " unregistered from weather tower.\n");
   }
 }

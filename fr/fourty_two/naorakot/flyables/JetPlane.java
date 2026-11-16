@@ -9,9 +9,9 @@ class JetPlane extends Aircraft {
     mutate[1] = new int[] {0, 5, 0};
     mutate[2] = new int[] {0, 1, 0};
     mutate[3] = new int[] {0, 0, -7};
-    announcement[0] = "beautiful day, isn't it ?";
-    announcement[1] = "i've always loved a rainy day.";
-    announcement[2] = "honestly ? i like it. the grey reminds me of home.";
-    announcement[3] = "i've never really seen snow before, y'know ? pretty cool.";
+    announcement[0] = "Beautiful day, isn't it ?";
+    announcement[1] = "I've always loved a rainy day.";
+    announcement[2] = "Honestly ? I like it. The grey reminds me of home.";
+    announcement[3] = "I've never really seen snow before, y'know ? Pretty cool.";
   }
 }

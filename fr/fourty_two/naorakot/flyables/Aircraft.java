@@ -35,15 +35,16 @@ public class Aircraft implements Flyable {
     int season = 0;
     while (weather.compareTo(seasons[season]) != 0)
     	season++;
-    this.ntoString();
-    weatherTower.fout.write(announcement[season] + "\n");
+    weatherTower.fout.write(this.toString() + ": " + announcement[season] + "\n");
     this.updateCoord(season);
   }
-  public boolean landed() {
+  public boolean landed() throws IOException {
+    if (coordinates.getHeight() == 0)
+      weatherTower.fout.write(this.toString() + " landing.\n");
     return (coordinates.getHeight() == 0);
   }
-  public void ntoString() throws IOException {
-    String str = name + "(" + id + "): ";
-    weatherTower.fout.write(str);
+  @Override
+  public String toString() {
+    return (name + "(" + id + ")");
   }
 }
