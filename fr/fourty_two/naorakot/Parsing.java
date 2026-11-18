@@ -46,7 +46,9 @@ public class Parsing {
 	}
     if (tab.length > 5 && !tab[5].isEmpty())
 		return 0;
-    objs.add(AircraftFactory.newAircraft(tab[0], tab[1], new Coordinates(coord[0], coord[1], coord[2])));
+    Flyable adder = AircraftFactory.newAircraft(tab[0], tab[1], new Coordinates(coord[0], coord[1], coord[2]));
+    if (adder == null) { return 0; }
+    objs.add(adder);
     return 1;
   }
   public int parse() {

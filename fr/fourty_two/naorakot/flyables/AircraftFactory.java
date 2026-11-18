@@ -7,7 +7,8 @@ public class AircraftFactory {
   private AircraftFactory() {};
   static String[] types = {"Helicopter", "JetPlane", "Balloon"};
   static public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates) {
-    Flyable ret;
+    Flyable ret = null;
+    if (id_ct +1 < id_ct) { return ret; }
     int i = 0;
     while (i != 3) {
       if (types[i].compareTo(p_type) == 0)
